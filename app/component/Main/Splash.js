@@ -30,7 +30,7 @@ export default class Splash extends Component{
                 component:Main,
             })
 
-        },2000)
+        },20)
     }
 
 

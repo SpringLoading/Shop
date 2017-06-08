@@ -22,7 +22,7 @@ export default class HomeDetail extends Component{
                 <TouchableOpacity onPress={()=>{
                     this.popTopHome()}}>
                 <Text style={styles.welcome}>
-                    测试跳转{this.props.zhc}
+                    测试跳转{this.props.zhc}{this.props.params.zhc}{this.props.passProps.zhc}
                 </Text>
                 </TouchableOpacity>
             </View>
@@ -30,6 +30,7 @@ export default class HomeDetail extends Component{
     }
 
     popTopHome(){
+        this.props.callbackzhc('：我就是回调的函数'+this.props.params.zhc+this.props.passProps.zhc);//需要在定义路由的时候设置props{...route}
         this.props.navigator.pop();
     }
 }
