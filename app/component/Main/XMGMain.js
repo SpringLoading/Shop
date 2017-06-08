@@ -66,6 +66,7 @@ export default class Main extends Component{
                     renderScene={(route,navigator)=>{
                         let Component = route.component;
                         // return <Component {...route.passProps} navigator={navigator}/>;
+                        //{...route}最优的方案：传这个就行了，这样就可以直接通过.params或者.passProps,或者是.方法名进行回调了
                         return <Component {...route.params} {...route.passProps} {...route} navigator={navigator}/>;
                     }}
                 />
