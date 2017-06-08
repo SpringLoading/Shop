@@ -19,21 +19,26 @@ import Shop from '../Shop/XMGShop'
 import Mine from '../Mine/XMGMine'
 import More from '../More/XMGMore'
 export default class Main extends Component{
+
     constructor(props){
         super(props)
         this.state = {selectedTab:'home'}
     }
     render(){
+        let argsHome = ['首页','icon_tabbar_homepage','icon_tabbar_homepage_selected','home','首页',Home];
+        let argsShop = ['商家', 'icon_tabbar_merchant_normal', 'icon_tabbar_merchant_selected','shop', '商家', Shop];
+        let argsMine = ['我的', 'icon_tabbar_mine', 'icon_tabbar_mine_selected','mine', '我的', Mine, 2];
+        let argsMore = ['更多', 'icon_tabbar_misc', 'icon_tabbar_misc_selected','more', '更多', More];
         return(
             <TabNavigator>
                 {/*首页*/}
-                {this.initTabNavigatorItem('首页','icon_tabbar_homepage','icon_tabbar_homepage_selected','home','首页',Home)}
+                {this.initTabNavigatorItem(...argsHome)}
                 {/*--商家--*/}
-                {this.initTabNavigatorItem('商家', 'icon_tabbar_merchant_normal', 'icon_tabbar_merchant_selected','shop', '商家', Shop)}
+                {this.initTabNavigatorItem(...argsShop)}
                 {/*--我的--*/}
-                {this.initTabNavigatorItem('我的', 'icon_tabbar_mine', 'icon_tabbar_mine_selected','mine', '我的', Mine, 2)}
+                {this.initTabNavigatorItem(...argsMine)}
                 {/*--更多--*/}
-                {this.initTabNavigatorItem('更多', 'icon_tabbar_misc', 'icon_tabbar_misc_selected','more', '更多', More)}
+                {this.initTabNavigatorItem(...argsMore)}
 
             </TabNavigator>
         );
@@ -60,7 +65,8 @@ export default class Main extends Component{
                     }}
                     renderScene={(route,navigator)=>{
                         let Component = route.component;
-                        return <Component {...route.passProps} navigator={navigator}/>;
+                        // return <Component {...route.passProps} navigator={navigator}/>;
+                        return <Component {...route.params} navigator={navigator}/>;
                     }}
                 />
             </TabNavigator.Item>

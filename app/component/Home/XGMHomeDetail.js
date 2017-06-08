@@ -13,14 +13,16 @@ import {
 
 
 export default class HomeDetail extends Component{
+    componentDidMount(){
 
+    }
     render() {
         return (
             <View style={styles.container}>
                 <TouchableOpacity onPress={()=>{
                     this.popTopHome()}}>
                 <Text style={styles.welcome}>
-                    测试跳转
+                    测试跳转{this.props.zhc}
                 </Text>
                 </TouchableOpacity>
             </View>

@@ -19,6 +19,7 @@ export default class Home extends Component{
     constructor(props){
        super(props)
     }
+
     render(){
         return(
             <View style={styles.container}>
@@ -61,7 +62,14 @@ export default class Home extends Component{
         this.props.navigator.push({
             name:'首页详情页',
             component:HomeDetail,//目标页面
-
+            params:{
+                zhc:'从home页面传递过来的参数'//直接在HomeDetail用this.props.name
+            },
+            //params和passProps都可以，只需要在定义navigator的时候再return 组件的时候作为props传过来就行，
+            // 在XMGMain中可以看到，其中...是es6的rest扩展写法
+            passProps:{
+                zhc:'从home页面传递过来的参数'//直接在HomeDetail用this.props.name
+            }
         });
     }
 

@@ -1,6 +1,7 @@
 /**
- * Created by barry on 2017/6/5.
+ * Created by barry on 2017/6/7.
  */
+
 import React, {Component} from 'react';
 import {
     View,
@@ -8,7 +9,7 @@ import {
 } from 'react-native';
 
 
-export default class More extends Component{
+export default class CommonTile extends Component{
 
     render(){
         return(
