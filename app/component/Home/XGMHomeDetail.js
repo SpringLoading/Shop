@@ -22,7 +22,7 @@ export default class HomeDetail extends Component{
                 <TouchableOpacity onPress={()=>{
                     this.popTopHome()}}>
                 <Text style={styles.welcome}>
-                    测试跳转{this.props.zhc}{this.props.params.zhc}{this.props.passProps.zhc}
+                    测试跳转{this.props.zhc}{this.props.params.zhc}{this.props.passProps.zhc}{this.props.zhc}
                 </Text>
                 </TouchableOpacity>
             </View>
