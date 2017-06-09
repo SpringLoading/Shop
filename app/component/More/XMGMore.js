@@ -6,14 +6,14 @@ import {
     View,
     Text
 } from 'react-native';
-
+import CommonTile from '../Common/CommonTile';
 
 export default class More extends Component{
 
     render(){
         return(
             <View>
-                <Text>More</Text>
+                <CommonTile title = '更多'/>
             </View>
         )
 

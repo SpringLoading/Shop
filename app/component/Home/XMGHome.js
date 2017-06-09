@@ -13,6 +13,10 @@ import {
 
 } from 'react-native';
 import HomeDetail from './XGMHomeDetail'
+import Router from '../Router/ThirdRouter'
+import {
+    Navigator,//进行页面之间的跳转
+} from 'react-native-deprecated-custom-components';
 var Dimensions = require('Dimensions')
 var {width, height} = Dimensions.get('window');
 export default class Home extends Component{
@@ -40,6 +44,7 @@ export default class Home extends Component{
     renderNavBar(){
         return(
             <View style={styles.navBarStyle}>
+
                 {/*左边*/}
                 <Text>上海</Text>
                 {/*中间*/}
@@ -75,6 +80,25 @@ export default class Home extends Component{
                 alert('回调函数'+msg);
             }
         });
+        //重新设置路由
+        // this.props.navigator.replace({
+        //         component:Router,
+        //         name:'首页详情页',
+        //         component:HomeDetail,//目标页面
+        //         params:{
+        //             zhc:':params从home页面传递过来的参数'//直接在HomeDetail用this.props.name
+        //         },
+        //         //params和passProps都可以，只需要在定义navigator的时候再return 组件的时候作为props传过来就行，
+        //         // 在XMGMain中可以看到，其中...是es6的rest扩展写法
+        //         passProps:{
+        //             zhc:':passProps从home页面传递过来的参数'//直接在HomeDetail用this.props.name
+        //         },
+        //
+        //         callbackzhc:(msg)=>{
+        //             alert('回调函数'+msg);
+        //         }
+        // });
+
     }
 
 }

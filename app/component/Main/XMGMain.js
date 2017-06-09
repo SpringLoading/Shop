@@ -19,7 +19,7 @@ import Shop from '../Shop/XMGShop'
 import Mine from '../Mine/XMGMine'
 import More from '../More/XMGMore'
 export default class Main extends Component{
-
+    //这里的Main是一个二级路由，和Index一样
     constructor(props){
         super(props)
         this.state = {selectedTab:'home'}

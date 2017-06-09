@@ -5,7 +5,8 @@
 import React, {Component} from 'react';
 import {
     View,
-    Text
+    Text,
+    StyleSheet,
 } from 'react-native';
 
 
@@ -13,10 +14,30 @@ export default class CommonTile extends Component{
 
     render(){
         return(
-            <View>
-                <Text>More</Text>
+            <View style={styles.containerStyles}>
+                <Text>{this.props.title}</Text>
             </View>
         )
 
     }
 }
+
+const styles = StyleSheet.create({
+    containerStyles:{
+        flexDirection:'row',
+        justifyContent:'space-around',
+        alignItems:'center'
+    },
+
+    rightStyles:{
+
+    },
+
+    centerSyles:{
+
+    },
+
+    leftStyles:{
+
+    }
+})

@@ -1,18 +1,18 @@
 /**
- * Created by barry on 2017/6/5.
+ * Created by barry on 2017/6/9.
  */
+
 import React, {Component} from 'react';
 import {
     Navigator,//进行页面之间的跳转
 } from 'react-native-deprecated-custom-components';
-import Splash from './component/Main/Splash';
-
-export default class Index extends Component{
-//这里的index就相当于一个路由，splash就是路由的初始场景
+import XMGHomeDetail from '../Home/XGMHomeDetail';
+export default class Router extends Component{
+//这里是一个路由。初始场景为XMGHomeDetail
     render(){
         return(
             <Navigator
-                initialRoute={{name:'splash',component:Splash}}
+                initialRoute={{name:'splash',component:XMGHomeDetail}}
                 configureScene={()=>{// 过渡动画
                     return Navigator.SceneConfigs.PushFromRight;
                 }}
@@ -26,4 +26,3 @@ export default class Index extends Component{
 
     }
 }
-
