@@ -9,8 +9,8 @@ import {
   AppRegistry,
 
 } from 'react-native';
-import Index from './app/index.js'
+import Index1 from './app/index.js'//测试export default命令
 
 
 
-AppRegistry.registerComponent('Shop', () => Index);
+AppRegistry.registerComponent('Shop', () => Index1);
