@@ -18,7 +18,8 @@ export default class Index extends Component{
                 }}
                 renderScene={(route,navigator)=>{
                     let Component = route.component;
-                    return <Component {...route.passProps} navigator={navigator}/>;
+                    //个人习惯以{...route}这种方式传参
+                    return <Component {...route} navigator={navigator}/>;
                 }}
             />
         )
