@@ -10,13 +10,23 @@ import {
     Platform,
     TextInput,
     Image,
+    ScrollView,
 
 } from 'react-native';
-import HomeDetail from './XGMHomeDetail'
+
+/**----导入外部的组件类---**/
+import HomeDetail from './XMGHomeDetail'
+var TopView = require('./XMGTopView');
+var MiddleView = require('./XMGHomeMiddleView');
+var MiddleBottomView = require('./XMGMiddleBottomView');
+var ShopCenter = require('./XMGShopCenter');
+var ShopCenterDetail = require('./XMGShopCenterDetail');
+var GeustYouLike = require('./XMGGeustYouLike');
 import Router from '../Router/ThirdRouter'
 import {
     Navigator,//进行页面之间的跳转
 } from 'react-native-deprecated-custom-components';
+
 var Dimensions = require('Dimensions')
 var {width, height} = Dimensions.get('window');
 export default class Home extends Component{
@@ -29,12 +39,33 @@ export default class Home extends Component{
             <View style={styles.container}>
                 {/*首页导航条*/}
             {this.renderNavBar()}
+            {/*测试页面跳转*/}
             <TouchableOpacity onPress={()=>{this.pushToDetail()}}>
 
                 <Text style={styles.welcome}>
                     首页面,点击查看详情页
                 </Text>
             </TouchableOpacity>
+
+                {/*首页的主要内容*/}
+                <ScrollView>
+                    {/*头部的View*/}
+                    <TopView />
+                    {/*中间的内容*/}
+                    <MiddleView />
+                    {/*中间下半部分的内容*/}
+                    <MiddleBottomView
+                        popTopHome={(data)=>{this.pushToDetail(data)}}
+                    />
+                    {/*购物中心*/}
+                    <ShopCenter
+                        popToHomeView = {(url) => this.pushToShopCenterDetail(url)}
+                    />
+
+                    {/*猜你喜欢*/}
+                    <GeustYouLike />
+
+                </ScrollView>
             </View>
 
         )
@@ -62,6 +93,21 @@ export default class Home extends Component{
             </View>
         )
     }
+    // 跳转到购物中心详情页
+    pushToShopCenterDetail(url){
+        this.props.navigator.push(
+            {
+                component: ShopCenterDetail, // 要跳转的版块
+                passProps: {'url': this.dealWithUrl(url)}
+            }
+        );
+    }
+
+    // 处理URL
+    dealWithUrl(url){
+        return url.replace('imeituan://www.meituan.com/web/?url=', '');
+    }
+
     //跳转到二级界面
     pushToDetail(){
         this.props.navigator.push({

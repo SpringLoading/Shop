@@ -6,7 +6,7 @@ import React, {Component} from 'react';
 import {
     Navigator,//进行页面之间的跳转
 } from 'react-native-deprecated-custom-components';
-import XMGHomeDetail from '../Home/XGMHomeDetail';
+import XMGHomeDetail from '../Home/XMGHomeDetail';
 export default class Router extends Component{
 //这里是一个路由。初始场景为XMGHomeDetail
     render(){
