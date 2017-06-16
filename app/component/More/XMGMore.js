@@ -15,9 +15,6 @@ import {
 } from 'react-native';
 import {CommonCell} from './XMGCommCell';
 
-const styles = StyleSheet.create({
-
-});
 
 const Row = React.createClass({
     _onClick: function() {
@@ -26,9 +23,9 @@ const Row = React.createClass({
     render: function() {
         return (
             <TouchableWithoutFeedback onPress={this._onClick} >
-                <View style={styles.row}>
-                    <Text style={styles.text}>
-                        {this.props.data.text + ' (' + this.props.data.clicks + ' clicks)'}
+                <View style={moreStyles.row}>
+                    <Text style={moreStyles.text}>
+                        {this.props.data.text + '   点击次数：' + this.props.data.clicks}
                     </Text>
                 </View>
             </TouchableWithoutFeedback>
@@ -45,8 +42,8 @@ export default class More extends Component{
             switchEnable:false,
             isRefreshing: false,
             loaded: 0,
-            rowData: Array.from(new Array(5)).map(
-                (val, i) => ({text: 'Initial row ' + i, clicks: 0})),//这里返回的是一个数组，数组的value是一个对象{text：xxx,clicks:xxx}
+            rowData: Array.from(new Array(1)).map(
+                (val, i) => ({text: '列表初始值：index = ' + i, clicks: 0})),//这里返回的是一个数组，数组的value是一个对象{text：xxx,clicks:xxx}
         };
     }
 
@@ -66,8 +63,7 @@ export default class More extends Component{
                         tintColor="#ff0000"
                         title="Loading..."
                         titleColor="#00ff00"
-                        colors={[ '#00ff00', '#0000ff']}
-
+                        colors={[ '#00ff00', '#0000ff']}//改数组不限于两个元素
                         progressBackgroundColor="#ffffff"
                     />
                 }>
@@ -103,9 +99,9 @@ export default class More extends Component{
         this.setState({isRefreshing: true});
         setTimeout(() => {
             // 每次刷新更新5条数据
-            const rowData = Array.from(new Array(5))
+            const rowData = Array.from(new Array(2))
                 .map((val, i) => ({
-                    text: 'Loaded row ' + (+this.state.loaded + i),
+                    text: '刷新的数据：index = ' + (+this.state.loaded + i),
                     clicks: 0,
                 }))
                 .concat(this.state.rowData);
@@ -189,16 +185,20 @@ const moreStyles = StyleSheet.create({
         right:10
     },
     row: {
-        borderColor: 'grey',
-        borderWidth: 1,
-        padding: 20,
-        backgroundColor: '#3a5795',
-        margin: 5,
+        height: 44,
+        backgroundColor:'#ffffff',
+        borderBottomColor:'#dddddd',
+        borderBottomWidth:0.5,
+        // 设置主轴的方向
+        flexDirection:'row',
+        // 设置主轴的对齐方式
+        justifyContent:'flex-start',
+        // // 垂直居中 ---> 设置侧轴的对齐方式
+        alignItems:'center',
     },
     text: {
-        alignSelf: 'center',
-        color: '#fff',
-        fontSize:20,
+        marginLeft:10
+
     },
 
 
