@@ -36,7 +36,7 @@ var HeaderView = React.createClass({
           <View style={styles.topViewStyle}>
              <Image source={{uri: 'see'}} style={styles.leftIconStyle}/>
              <View style={styles.centerViewStyle}>
-                 <Text style={{fontSize:18, color:'white', fontWeight:'bold'}}>小码哥电商</Text>
+                 <Text style={{fontSize:18, color:'white', fontWeight:'bold'}}>SpringLoading</Text>
                  <Image source={{uri: 'avatar_vip'}} style={{width:17, height:17}}/>
              </View>
               {/*--右边的箭头--*/}
@@ -58,7 +58,7 @@ var HeaderView = React.createClass({
         // 数组
         var itemArr = [];
         // 数据数组
-        var data = [{'number':'100', 'title':'码哥券'},{'number':'12', 'title':'评价'},{'number':'50', 'title':'收藏'}];
+        var data = [{'number':'100', 'title':'优惠券'},{'number':'12', 'title':'评价'},{'number':'50', 'title':'收藏'}];
         // 遍历创建组件装入数组
         for(var i=0; i<data.length; i++){
             // 取出单独的数据

@@ -44,7 +44,7 @@ var Mine = React.createClass({
                 <View style={{marginTop:20}}>
                     <MyCell
                         leftIconName="draft"
-                        leftTitle="小码哥钱包"
+                        leftTitle="我的钱包"
                         rightTitle="账户余额:¥100"
                     />
 

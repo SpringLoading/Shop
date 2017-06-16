@@ -98,7 +98,7 @@ export default class More extends Component{
     _onRefresh() {
         this.setState({isRefreshing: true});
         setTimeout(() => {
-            // 每次刷新更新5条数据
+            // 每次刷新更新2条数据
             const rowData = Array.from(new Array(2))
                 .map((val, i) => ({
                     text: '刷新的数据：index = ' + (+this.state.loaded + i),
@@ -107,7 +107,7 @@ export default class More extends Component{
                 .concat(this.state.rowData);
 
             this.setState({
-                loaded: this.state.loaded + 5,
+                loaded: this.state.loaded + 2,
                 isRefreshing: false,
                 rowData: rowData,
             });
