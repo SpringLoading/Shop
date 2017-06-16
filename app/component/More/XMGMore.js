@@ -55,7 +55,8 @@ export default class More extends Component{
         return(
             <View style={moreStyles.container}>
                 {this.renderNavBar()}
-                <ScrollView refreshControl={
+                <ScrollView
+                    refreshControl={
                     //这个是listView和scrollView的刷新控件
                     <RefreshControl
                         refreshing={this.state.isRefreshing}
@@ -66,7 +67,9 @@ export default class More extends Component{
                         colors={[ '#00ff00', '#0000ff']}//改数组不限于两个元素
                         progressBackgroundColor="#ffffff"
                     />
-                }>
+                    }
+                    showsVerticalScrollIndicator={false}
+                >
 
                     {rows}
                     <View style={{marginTop:10}}>

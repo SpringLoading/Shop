@@ -18,7 +18,7 @@ import {
 
 
 var Dimensions = require('Dimensions');
-var {width} = Dimensions.get('window');
+var {width} = Dimensions.get('window');//解构赋值
 
 // 全局的变量
 var cols = 5;
@@ -54,24 +54,27 @@ var TopListView = React.createClass({
     },
 
     // 具体的cell
-    renderRow(rowdata){
+    renderRow(rowData){
         return(
-          <TouchableOpacity onPress={()=>{alert('0')}}>
+          <TouchableOpacity onPress={()=>{alert(rowData.index)}}>
             <View style={styles.cellStyle}>
-                <Image source={{uri: rowdata.image}} style={{width:52, height:52}}/>
-                <Text style={styles.titleStyle}>{rowdata.title}</Text>
+                <Image source={{uri: rowData.image}} style={{width:52, height:52}}/>
+                <Text style={styles.titleStyle}>{rowData.title}</Text>
             </View>
           </TouchableOpacity>
         );
     }
+    //
 });
 
 
 const styles = StyleSheet.create({
     contentViewStyle:{
-        // 设置主轴的方向
+        // 设置主轴的方向,水平方向
         flexDirection:'row',
-        // 多个cell在同一行显示
+        // 多个cell在同一行显示，css中的样式
+        //nowrap：flex容器为单行。该情况下flex子项可能会溢出容器
+        //wrap：flex容器为多行。该情况下flex子项溢出的部分会被放置到新行，子项内部会发生断行
         flexWrap:'wrap',
         // 宽度
         width:width

@@ -36,7 +36,7 @@ var TopView = React.createClass({
             <View style={styles.container}>
                 {/*内容部分*/}
                 <ScrollView
-                    horizontal={true}
+                    horizontal={true}//横向的，一个item是一个listview(TopListView)
                     pagingEnabled={true}
                     showsHorizontalScrollIndicator={false}
                     onMomentumScrollEnd = {this.onScrollAnimationEnd}
@@ -71,6 +71,9 @@ var TopView = React.createClass({
         var dataArr = TopMenu.data;
         // 遍历创建组件
         for(var i=0; i<dataArr.length; i++){
+            for(var j=0; j<dataArr[i].length; j++){
+                dataArr[i][j].index = j;
+            }
             itemArr.push(
                <TopListView key={i}
                    dataArr={dataArr[i]}
