@@ -39,7 +39,8 @@ var TopView = React.createClass({
                     horizontal={true}//横向的，一个item是一个listview(TopListView)
                     pagingEnabled={true}
                     showsHorizontalScrollIndicator={false}
-                    onMomentumScrollEnd = {this.onScrollAnimationEnd}
+                    // onMomentumScrollEnd = {this.onScrollAnimationEnd}
+                    onScroll={this.onScrollAnimationEnd}
                 >
                     {this.renderScrollItem()}
                 </ScrollView>
@@ -53,6 +54,7 @@ var TopView = React.createClass({
 
     // 当一帧滚动结束的时候调用
     onScrollAnimationEnd(e){
+        // alert('111')
         // 求出当前的页码
         var currentPage = Math.floor(e.nativeEvent.contentOffset.x / width);
 

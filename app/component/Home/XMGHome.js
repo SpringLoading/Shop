@@ -59,7 +59,7 @@ export default class Home extends Component{
                     />
                     {/*购物中心*/}
                     <ShopCenter
-                        popToHomeView = {(url) => this.pushToShopCenterDetail(url)}
+                        popToHomeView = {(url) => this.pushToShopCenterDetail(url)}//回调函数
                     />
 
                     {/*猜你喜欢*/}
